@@ -30,7 +30,11 @@ app.use('/exchange-rate', limiter);
 // load the enviroment variables
 dotenv.config();
 
-const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
+// allowed origins for CORS
+const allowedOrigins = [
+    'https://external-api-services.vercel.app',      
+    'http://127.0.0.1:5500'                         // local server [UI]
+];
 
 // CORS Middleware
 app.use(cors({
