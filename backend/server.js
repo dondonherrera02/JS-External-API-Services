@@ -40,6 +40,15 @@ app.use(cors({
     credentials: true
 }));
 
+app.options('*', (req, res) => {
+    const origin = allowedOrigins.includes(req.headers.origin) ? req.headers.origin : allowedOrigins[0];
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.sendStatus(204); // No Content
+});
+
 app.use(express.json()); // Body parsing middleware
 
 // Endpoints
