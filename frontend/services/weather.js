@@ -23,7 +23,8 @@ class WeatherHelperService {
             const WEATHERCONFIG = {
                 cacheWeatherKey: 'weather-info',
                 cacheWeatherLastUpdateKey: 'weather-info-timeStamp',
-                endpoint: 'http://localhost:8080/weather',
+                endpoint: 'https://external-api-services.onrender.com/weather',
+                // endpoint: 'http://localhost:8080/weather',
                 city: 'Calgary',
                 units: 'metric', // metric - °C, imperial - °F,
                 // https://dev.to/delisrey/react-query-staletime-vs-cachetime-hml

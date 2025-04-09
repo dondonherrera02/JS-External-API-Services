@@ -23,7 +23,8 @@ class ExchangeRateHelperService {
             const EXCHANGERATECONFIG = {
                 cacheExchangeRateKey: 'exchange-rate-info',
                 cacheExchangeRateLastUpdateKey: 'exchange-rate-info-timeStamp',
-                endpoint: 'http://localhost:8080/exchange-rate',
+                endpoint: 'https://external-api-services.onrender.com/exchange-rate',
+                //endpoint: 'http://localhost:8080/exchange-rate',
                 //https://dev.to/delisrey/react-query-staletime-vs-cachetime-hml
                 cacheTime: 60 * 60 * 1000 // 1 hour - defines how long weather data should be considered fresh or valid before making a new API call.
             }
