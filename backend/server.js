@@ -23,10 +23,6 @@ const limiter = rateLimit({
     message: 'Rate limit exceeded, please try again later.'
   });
 
-// Endpoints to apply the limit
-app.use('/weather', limiter);
-app.use('/exchange-rate', limiter);
-
 // load the enviroment variables
 dotenv.config();
 
@@ -44,22 +40,34 @@ app.use(cors({
     credentials: true
 }));
 
-app.options('*', (req, res) => {
+// Endpoints to apply the limit
+app.use('/weather', limiter);
+app.use('/exchange-rate', limiter);
+app.use(express.json()); // Body parsing middleware
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error('Global error handler:', err);
+    res.status(500).json({ error: 'Internal server error' });
+});
+
+// Utility function to set CORS headers dynamically
+const setCorsHeaders = (req, res) => {
     const origin = allowedOrigins.includes(req.headers.origin) ? req.headers.origin : allowedOrigins[0];
     res.header('Access-Control-Allow-Origin', origin);
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.sendStatus(204); // No Content
-});
-
-app.use(express.json()); // Body parsing middleware
+    console.log(`SET to origin: ${origin}`);
+};
 
 // Endpoints
 
 // GET Weather Information
 //  Reference: https://openweathermap.org/api
 app.get('/weather/', async (req, res) => {
+
+    setCorsHeaders(req, res);
+
     const { city, units } = req.query;
 
     const WEATHERCONFIG = {
@@ -93,6 +101,8 @@ app.get('/weather/', async (req, res) => {
 // GET Exchange Rate Information
 //  Reference: https://www.exchangerate-api.com/
 app.get('/exchange-rate/', async (req, res) => {
+
+    setCorsHeaders(req, res);
 
     const EXCHANGERATE = {
         apiKey : process.env.EXCHANGE_RATE_API_KEY || 'EXCHANGE_RATE_API_KEY',
