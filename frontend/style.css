@@ -1,0 +1,211 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background: url("/assets/bg.jpg") center/cover;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh; 
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 5rem;
+    height: 60%;
+    width: 100%;
+
+    /* Frosted glass effect */
+    /* Ref: https://webdesign.tutsplus.com/how-to-create-a-frosted-glass-effect-in-css--cms-32535t*/
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    outline: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card h2 {
+    color: #493444;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Weather Section Styles */
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#weather-icon {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#weather-data {
+    flex-grow: 1;
+}
+
+#temperature {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+#description {
+    font-size: 2rem;
+    color: #b65656;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+#timestamp {
+    font-size: 1.3rem;
+    color: #fcdbe3;
+}
+
+.weather-status {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin-top: 10px;
+}
+
+/* Currency Exchange Section Styles */
+.exchange-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group label {
+    font-weight: bold;
+    width: 80px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.select-group #from-currency, #to-currency{
+    border: 1px solid white;
+}
+
+.select-group select {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.currency-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.select-group {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.select-group label {
+    font-weight: bold;
+    width: 78px;
+}
+
+.select-group select {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#swap-button {
+    background-color: #f36f2d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#swap-button:hover {
+    background-color: #e7b397;
+}
+
+.result-container {
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#conversion-result {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7c452b;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#exchange-rate {
+    font-size: 1.5rem;
+    color: #f3f3f3;
+}
+
+.exchange-status {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
